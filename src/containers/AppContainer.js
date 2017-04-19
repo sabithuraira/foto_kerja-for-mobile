@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import { View } from 'react-native';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import ListPhotoBox from '../components/ListPhotoBox';
@@ -41,11 +42,11 @@ class AppContainer extends Component {
   render() {
     const { photoReducer, detailReducer, generalReducer, actions } = this.props;
     return (
-        <div>
+        <View>
           <SearchBox actions={actions} general={generalReducer} />
           <ListPhotoBox  actions={actions} photo={photoReducer} 
               detail={detailReducer} general={generalReducer} />
-        </div>
+        </View>
     );
   }
 }

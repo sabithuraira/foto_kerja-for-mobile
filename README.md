@@ -6,4 +6,5 @@ This app will consume API from https://github.com/sabithuraira/foto_kerja that's
 web API version first to run this project.
 
 Tech :
-React Native
+* React Native
+* Redux

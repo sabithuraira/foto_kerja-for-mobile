@@ -10,12 +10,12 @@ import {
   SET_LABEL_SUKA,
  } from '../constants/appConstants';
 
-const initialState = {
+const photoState = {
     search_keyword: '',
     datas: [],
 }
 
-const photoReducer = (state = initialState, action) => {
+const photoReducer = (state = photoState, action) => {
   switch (action.type) {
     case LIST_PHOTO:
       return Object.assign({}, state, {

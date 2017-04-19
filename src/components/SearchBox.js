@@ -9,23 +9,29 @@ export default class SearchBox extends Component {
         };
 
         this.searchClick = this.searchClick.bind(this);
-        this.handleInputChange = this.handleInputChange.bind(this);  
+        //this.handleInputChange = this.handleInputChange.bind(this);  
     }
-
+    /*
     handleInputChange(event) {
         this.setState({ src_term: event.target.value });
     }
+    */
 
     searchClick (event) {
         var is_change=false;
 
-        if(event.type=="keypress" && event.key=='Enter') is_change=true
+        if(event.nativeEvent.key=='Enter') is_change=true
         if(event.type=="click") is_change=true;
 
         if(is_change){
-            $.getJSON("/foto?src_term="+this.state.src_term, (response) => { 
-                this.props.actions.listPhoto(this.state.src_term, response.data);
-            });
+            fetch(this.props.general.url_web+'foto'+"?src_term="+this.state.src_term.toLowerCase())
+                .then((response) => response.json())
+                .then((responseJson) => {
+                    this.props.actions.listPhoto(this.state.src_term.toLowerCase(), responseJson.data);
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
         }
     };
 
@@ -45,9 +51,10 @@ export default class SearchBox extends Component {
     return (
       <TextInput
         style={{height: 40, borderColor: 'gray', borderWidth: 1}}
-        onChangeText={this.handleInputChange}
+        onChangeText={(src_term) => this.setState({src_term})}
         onKeyPress={this.searchClick}
         value={this.state.src_term} 
+        placeholder="Cari foto..."
       />
     );
   }
@@ -89,5 +96,4 @@ export default class SearchBox extends React.Component {
         ) 
     }
 }
-
 */

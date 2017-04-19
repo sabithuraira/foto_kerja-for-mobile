@@ -6,7 +6,7 @@ import {
 } from 'react-native';
 
 import PhotoBox from './PhotoBox'; 
-import Grid from 'react-native-grid-component';
+//import Grid from 'react-native-grid-component';
  
 export default class ListPhotoBox extends Component {
     photoComponent(index) {
@@ -17,8 +17,7 @@ export default class ListPhotoBox extends Component {
         }
     }
 
-
-  render() {
+    render() {
       var photoItems = this.props.photo.datas.map((data,index) =>{
             if(index%2==0){
               return (
@@ -32,11 +31,9 @@ export default class ListPhotoBox extends Component {
       );
 
     return (
-       <View style={{flex: 1}}>
           <ScrollView>
             {photoItems}
           </ScrollView>
-      </View>
     );
   }
 }
