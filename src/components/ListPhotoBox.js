@@ -6,7 +6,6 @@ import {
 } from 'react-native';
 
 import PhotoBox from './PhotoBox'; 
-//import Grid from 'react-native-grid-component';
  
 export default class ListPhotoBox extends Component {
     photoComponent(index) {
